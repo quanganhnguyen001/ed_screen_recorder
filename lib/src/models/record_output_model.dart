@@ -16,6 +16,7 @@ class RecordOutput {
     required this.videoHash,
     required this.startDate,
     required this.endDate,
+    required this.test,
   });
 
   bool success;
@@ -26,6 +27,7 @@ class RecordOutput {
   String videoHash;
   int startDate;
   int? endDate;
+  String? test;
 
   factory RecordOutput.fromJson(Map<String, dynamic> json) {
     return RecordOutput(
@@ -37,6 +39,7 @@ class RecordOutput {
       videoHash: json["videohash"],
       startDate: json['startdate'],
       endDate: json['enddate'],
+      test: json['test'],
     );
   }
 
@@ -49,5 +52,6 @@ class RecordOutput {
         "videohash": videoHash,
         "startdate": startDate,
         "enddate": endDate,
+        "test": test
       };
 }
