@@ -16,6 +16,7 @@ class RecordOutput {
     required this.videoHash,
     required this.startDate,
     required this.endDate,
+    required this.checkStatus, // Thêm checkStatus
     required this.test,
   });
 
@@ -27,6 +28,7 @@ class RecordOutput {
   String videoHash;
   int startDate;
   int? endDate;
+  String? checkStatus; // Thêm checkStatus
   String? test;
 
   factory RecordOutput.fromJson(Map<String, dynamic> json) {
@@ -39,19 +41,21 @@ class RecordOutput {
       videoHash: json["videohash"],
       startDate: json['startdate'],
       endDate: json['enddate'],
+      checkStatus: json['checkStatus'], // Thêm checkStatus
       test: json['test'],
     );
   }
 
   Map<String, dynamic> toJson() => {
         "success": success,
-        "file": file,
+        "file": file.path, // Sửa file thành file.path
         "progressing": isProgress,
         "eventname": eventName,
         "message": message,
         "videohash": videoHash,
         "startdate": startDate,
         "enddate": endDate,
-        "test": test
+        "checkStatus": checkStatus, // Thêm checkStatus
+        "test": test,
       };
 }
